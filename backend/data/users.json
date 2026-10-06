@@ -16,11 +16,5 @@
     "name": "Michael Brown",
     "username": "michaelbrown",
     "email": "michael@example.com"
-  },
-  {
-    "id": 5,
-    "name": "Dirk Javier Updated",
-    "username": "dirkdev",
-    "email": "dirk.updated@example.com"
   }
 ]
