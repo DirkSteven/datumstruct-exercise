@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "ebf24d60-1f28-4c40-a2c4-e2c2bfdc8949",
+    "name": "Datumstruct",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56908586",
+    "_collection_link": "https://go.postman.co/collection/56908586-ebf24d60-1f28-4c40-a2c4-e2c2bfdc8949?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "APIs",
+      "item": [
+        {
+          "name": "Users",
+          "item": [
+            {
+              "name": "Create Users",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Dirk Javier\",\r\n  \"username\": \"dirkjavier\",\r\n  \"email\": \"dirk@example.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Create Users Valid Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"Dirk\",\r\n  \"username\": \"djavier\",\r\n  \"email\": \"dirk@mail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "key": "id",
+                          "value": null,
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "67"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"43-3N9ZN9QL5l4qNl7UnusIckdXeB4\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:13:02 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 6,\n  \"name\": \"Dirk\",\n  \"username\": \"djavier\",\n  \"email\": \"dirk@mail.com\"\n}"
+                },
+                {
+                  "name": "400 - Create Users Invalid Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"a\",\r\n  \"username\": \"i\",\r\n  \"email\": \"not_an_email.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "key": "id",
+                          "value": null,
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "181"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"b5-JZmd0Fsb+xXgME/QQ+ZXWssG+EE\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:14:00 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"Invalid user data\",\n  \"errors\": {\n    \"name\": [\n      \"Name must be at least 2 characters\"\n    ],\n    \"username\": [\n      \"Username must be at least 2 characters\"\n    ],\n    \"email\": [\n      \"Please enter a valid email\"\n    ]\n  }\n}"
+                }
+              ]
+            },
+            {
+              "name": "GET Users",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/{{id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "{{id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get User by Id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "response": [
+                {
+                  "name": "Get User by ID Valid Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users/1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users",
+                        "1"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "74"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"4a-kfxz4RoHcZ2vnzS48Qn9E7jAvms\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:11:13 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 1,\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john@example.com\"\n}"
+                },
+                {
+                  "name": "Get User by ID Invalid Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users/99999",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users",
+                        "99999"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "28"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"1c-ZEVVcvtFhxKX/QUvVKqKxwGbbNA\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:11:45 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"User not found\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Update User",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Dirk Javier Updated\",\r\n  \"username\": \"dirkdev\",\r\n  \"email\": \"dirk.updated@example.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "4"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "200 - Update User Valid Response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"NewName\",\r\n  \"username\": \"NewUsername\",\r\n  \"email\": \"hello@mail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users/1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users",
+                        "1"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "75"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"4b-y4P1H81MwbTyXMo6UbARSelYI2E\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:16:31 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 1,\n  \"name\": \"NewName\",\n  \"username\": \"NewUsername\",\n  \"email\": \"hello@mail.com\"\n}"
+                },
+                {
+                  "name": "400 - Update User Invalid Response - Invalid Fields",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": \"hello@mail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users/1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users",
+                        "1"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "170"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"aa-569IGgyLt5htoAnhF5f0T8Zhkq8\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:16:52 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"Invalid user data\",\n  \"errors\": {\n    \"name\": [\n      \"Invalid input: expected string, received undefined\"\n    ],\n    \"username\": [\n      \"Invalid input: expected string, received undefined\"\n    ]\n  }\n}"
+                },
+                {
+                  "name": "400 - Update User Invalid Email Field",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"NewName\",\r\n  \"username\": \"NewUsername\",\r\n  \"email\": \"not_a_validmail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users/1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users",
+                        "1"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "81"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"51-1dAW1tqOon6k3FJ4iOupMw1phdY\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:17:56 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"Invalid user data\",\n  \"errors\": {\n    \"email\": [\n      \"Please enter a valid email\"\n    ]\n  }\n}"
+                },
+                {
+                  "name": "404 - Update User Does not Exist",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"NewName\",\r\n  \"username\": \"NewUsername\",\r\n  \"email\": \"not_a_valid@mail.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/{{apiVer}}/users/9999",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "{{apiVer}}",
+                        "users",
+                        "9999"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "x-powered-by",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "access-control-allow-origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "content-length",
+                      "value": "28"
+                    },
+                    {
+                      "key": "etag",
+                      "value": "W/\"1c-ZEVVcvtFhxKX/QUvVKqKxwGbbNA\""
+                    },
+                    {
+                      "key": "date",
+                      "value": "Tue, 06 Oct 2026 22:20:14 GMT"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "keep-alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"message\": \"User not found\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Delete User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "apiVer",
+      "value": ""
+    },
+    {
+      "key": "model",
+      "value": ""
+    }
+  ]
+}
