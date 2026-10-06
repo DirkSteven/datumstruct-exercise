@@ -15,18 +15,47 @@ The application allows users to view, search, create, update, and delete user re
 | <b> Validation </b> | Zod |
 | <b> Data Storage </b> | JSON File |
 
-## Setup
+## Setup and Installation
 
 1. Clone the repository
    ```bash
     git clone https://github.com/DirkSteven/datumstruct-exercise.git
    ```
-2. In the project root folder, start the server by running the command below: 
+2. Navigate to the project's root folder
+   ```cmd
+   cd datumstruct-exercise
+   ```
+3. Install dependencies.
+    ```cmd
+        npm install
+    ```
+   > **Note:** Make sure Node.js is installed. You can check your Node.js version by running:
+   > 
+   > ```cmd
+   > node -v
+   > ```
+   > 
+   > If Node.js is not installed, download it from the [official Node.js website](https://nodejs.org/).
+4. In the project root folder, start the server by running the command below: 
    ```js
     npm start  // This will both start the servers for the frontend and backend
    ```
 
-3. To access the website, type the URL in the browser `http://localhost:5173/`
+5. Create the environment variables. 
+   - Navigate to the <b>backend folder</b> and create a `.env` file. Copy and paste the environment files below. 
+    ```env
+            PORT=3000
+    ```
+
+    - Navigate to the <b> frontend </b> folder and create a `.env` file. Copy and paste the environment files below.
+         ```env
+            VITE_API_URL=http://localhost:3000/api
+        ``` 
+6. Start the project 
+   ```js
+        npm start
+   ```
+7. To access the website, type the URL in the browser `http://localhost:5173/`
 
 ## API Endpoints
 
