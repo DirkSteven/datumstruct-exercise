@@ -27,7 +27,7 @@ The application allows users to view, search, create, update, and delete user re
    ```
 3. Install dependencies.
     ```cmd
-        npm install
+    npm install
     ```
    > **Note:** Make sure Node.js is installed. You can check your Node.js version by running:
    > 
@@ -41,19 +41,27 @@ The application allows users to view, search, create, update, and delete user re
     npm start  // This will both start the servers for the frontend and backend
    ```
 
-5. Create the environment variables. 
-   - Navigate to the <b>backend folder</b> and create a `.env` file. Copy and paste the environment files below. 
+5. Set up the environment variables.
+   - Navigate to the `backend` folder:
+    ```bash
+     cd backend
+    ```
+    Create a `.env` file and paste the text below inside the file:
     ```env
-            PORT=3000
+    PORT=3000
     ```
 
-    - Navigate to the <b> frontend </b> folder and create a `.env` file. Copy and paste the environment files below.
-         ```env
-            VITE_API_URL=http://localhost:3000/api
-        ``` 
-6. Start the project 
+   - Navigate to the `frontend` folder::
+    ```bash
+    cd ../frontend
+    ``` 
+    Create a `.env` file and paste the text below inside the file:
+    ```env
+    VITE_API_URL=http://localhost:3000/api
+    ``` 
+6. Go back to the the project root and start the project 
    ```js
-        npm start
+    npm start
    ```
 7. To access the website, type the URL in the browser `http://localhost:5173/`
 
