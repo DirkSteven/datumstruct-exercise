@@ -36,12 +36,7 @@ The application allows users to view, search, create, update, and delete user re
    > ```
    > 
    > If Node.js is not installed, download it from the [official Node.js website](https://nodejs.org/).
-4. In the project root folder, start the server by running the command below: 
-   ```js
-    npm start  // This will both start the servers for the frontend and backend
-   ```
-
-5. Set up the environment variables.
+4. Set up the environment variables.
    - Navigate to the `backend` folder:
     ```bash
      cd backend
@@ -59,11 +54,11 @@ The application allows users to view, search, create, update, and delete user re
     ```env
     VITE_API_URL=http://localhost:3000/api
     ``` 
-6. Go back to the the project root and start the project 
+5. Go back to the the project root and start the project 
    ```js
     npm start
    ```
-7. To access the website, type the URL in the browser `http://localhost:5173/`
+6. To access the website, type the URL in the browser `http://localhost:5173/`
 
 ## API Endpoints
 
