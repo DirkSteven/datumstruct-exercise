@@ -1,7 +1,7 @@
 # Datumstruct User Management Dashboard 
 
 ## Overview 
-A full-stack user management application built for the Datumstruct Software Engineer coding test.
+A full-stack user management application built for the Datumstruct Software Engineer coding activity.
 The application allows users to view, search, create, update, and delete user records. User data is stored in a JSON file.
 
 ## Tech Stack
@@ -19,7 +19,7 @@ The application allows users to view, search, create, update, and delete user re
 
 1. Clone the repository
    ```bash
-    git clone 
+    git clone https://github.com/DirkSteven/datumstruct-exercise.git
    ```
 2. In the project root folder, start the server by running the command below: 
    ```js
