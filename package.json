@@ -1,14 +1,14 @@
 {
   "name": "datumstruct-user-management-dashboard",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "start": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
+    "start": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "concurrently": "^10.0.5"
   }
