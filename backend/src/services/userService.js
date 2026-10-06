@@ -3,6 +3,9 @@ const path = require("path");
 
 const usersFilePath = path.join(__dirname, "../../data/users.json");
 
+// Uncomment for 505 Test and comment the filePath above
+// const usersFilePath = path.join(__dirname, "../../data/does-not-exist.json");
+
 const getUsers = async () => {
   const data = await fs.readFile(usersFilePath, "utf-8");
   return JSON.parse(data);

@@ -1,127 +1,103 @@
 const userService = require("../services/userService");
+const { userSchema } = require("../schemas/userSchema");
 
 const getUsers = async (req, res) => {
-  try {
-    const users = await userService.getUsers();
+    try {
+        const users = await userService.getUsers();
 
-    res.json(users);
-  } catch (error) {
-    console.error(error);
-
-    res.status(500).json({
-      message: "Failed to read users"
-    });
-  }
+        res.json(users);
+    } catch (error) {
+        next(error);
+    }
 };
 
 const getUserById = async (req, res) => {
-  try {
-    const userId = Number(req.params.id);
-    const user = await userService.getUserById(userId);
+    try {
+        const userId = Number(req.params.id);
+        const user = await userService.getUserById(userId);
 
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found"
-      });
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        res.json(user);
+    } catch (error) {
+        next(error);
     }
-
-    res.json(user);
-  } catch (error) {
-    console.error(error);
-
-    res.status(500).json({
-      message: "Failed to read user"
-    });
-  }
 };
 
 const createUser = async (req, res) => {
-  try {
-    const { name, username, email } = req.body;
+    try {
+        const result = userSchema.safeParse(req.body);
 
-    if (!name || !username || !email) {
-      return res.status(400).json({
-        message: "Name, username, and email are required"
-      });
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid user data",
+                errors: result.error.flatten().fieldErrors
+            });
+        }
+
+        const user = await userService.createUser(result.data);
+
+        res.status(201).json(user);
+    } catch (error) {
+        next(error);
     }
-
-    const user = await userService.createUser({
-      name,
-      username,
-      email
-    });
-
-    res.status(201).json(user);
-  } catch (error) {
-    console.error(error);
-
-    res.status(500).json({
-      message: "Failed to create user"
-    });
-  }
 };
 
 const updateUser = async (req, res) => {
-  try {
-    const userId = Number(req.params.id);
-    const { name, username, email } = req.body;
+    try {
+        const userId = Number(req.params.id);
 
-    if (!name || !username || !email) {
-      return res.status(400).json({
-        message: "Name, username, and email are required"
-      });
+        const result = userSchema.safeParse(req.body);
+
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid user data",
+                errors: result.error.flatten().fieldErrors
+            });
+        }
+
+        const user = await userService.updateUser(userId, result.data);
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        res.json(user);
+    } catch (error) {
+        next(error);
     }
-
-    const user = await userService.updateUser(userId, {
-      name,
-      username,
-      email
-    });
-
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found"
-      });
-    }
-
-    res.json(user);
-  } catch (error) {
-    console.error(error);
-
-    res.status(500).json({
-      message: "Failed to update user"
-    });
-  }
 };
 
 const deleteUser = async (req, res) => {
-  try {
-    const userId = Number(req.params.id);
-    const user = await userService.deleteUser(userId);
+    try {
+        const userId = Number(req.params.id);
+        const user = await userService.deleteUser(userId);
 
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found"
-      });
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        res.json({
+            message: "User deleted successfully",
+            user
+        });
+    } catch (error) {
+        next(error);
     }
-
-    res.json({
-      message: "User deleted successfully",
-      user
-    });
-  } catch (error) {
-    console.error(error);
-
-    res.status(500).json({
-      message: "Failed to delete user"
-    });
-  }
 };
 
 module.exports = {
-  getUsers,
-  getUserById,
-  createUser,
-  updateUser,
-  deleteUser
+    getUsers,
+    getUserById,
+    createUser,
+    updateUser,
+    deleteUser
 };
