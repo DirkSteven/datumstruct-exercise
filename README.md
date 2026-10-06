@@ -49,11 +49,13 @@ The collection includes successful responses and examples for validation and err
 To test the `500 Internal Server` Error response, uncomment the test code in `backend/src/services/userService.js` and comment out the valid usersFilePath. This intentionally causes a server-side error when accessing the user data.
 
 ```js
+// Uncomment the code below to test 505 
+const usersFilePath = path.join(__dirname, "../../data/does-not-exist.json");
 
-const usersFilePath = path.join(__dirname, "../../data/users.json");
+// AND 
 
-// Uncomment for 505 Test and comment the filePath above
-// const usersFilePath = path.join(__dirname, "../../data/does-not-exist.json");
+// This code should be commented
+// const usersFilePath = path.join(__dirname, "../../data/users.json");
 ```
 
 
